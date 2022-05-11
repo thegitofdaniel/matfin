@@ -1,0 +1,38 @@
+#############################################
+##### Create environments with Anaconda #####
+#############################################
+
+# basic
+conda create -n myenv
+# alternative: add parameters
+conda create -n myenv python=3.7
+# activate
+conda activate myenv
+
+# other usefull functions
+conda env list
+conda deactivate myenv
+conda env remove -n myenv
+
+# add to jupyter
+pip install --user ipykernel
+python -m ipykernel install --user --name=4finance
+
+# remove from jupyter
+jupyter kernelspec list
+jupyter kernelspec uninstall myenv
+
+# install packages
+
+# conda install
+import sys
+print(sys.prefix)
+!conda install --yes --prefix {sys.prefix} numpy
+!conda install --yes --prefix C:\ProgramData\Anaconda3 numpy
+
+# pip install
+import sys
+print(sys.executable)
+!C:{sys.executable} -m pip install numpy
+!C:\ProgramData\Anaconda3\python.exe -m pip install numpy
+
